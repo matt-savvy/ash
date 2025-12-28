@@ -29,7 +29,7 @@ defmodule Ash.Test.Policy.RelatesToActorViaTest do
 
     policies do
       policy action(:read) do
-        authorize_if relates_to_actor_via(:company, field: :company)
+        authorize_if expr(company == ^actor(:company_id))
       end
     end
 
